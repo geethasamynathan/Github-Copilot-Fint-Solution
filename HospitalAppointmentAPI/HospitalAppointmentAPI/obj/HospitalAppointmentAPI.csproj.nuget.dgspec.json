@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Personal\\Fint Solution\\Day 10\\HospitalAppointmentAPI\\HospitalAppointmentAPI\\HospitalAppointmentAPI.csproj": {}
+    "C:\\Personal\\Fint Solution\\Git Fint solution\\Github-Copilot-Fint-Solution\\HospitalAppointmentAPI\\HospitalAppointmentAPI\\HospitalAppointmentAPI.csproj": {}
   },
   "projects": {
-    "C:\\Personal\\Fint Solution\\Day 10\\HospitalAppointmentAPI\\HospitalAppointmentAPI\\HospitalAppointmentAPI.csproj": {
+    "C:\\Personal\\Fint Solution\\Git Fint solution\\Github-Copilot-Fint-Solution\\HospitalAppointmentAPI\\HospitalAppointmentAPI\\HospitalAppointmentAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Personal\\Fint Solution\\Day 10\\HospitalAppointmentAPI\\HospitalAppointmentAPI\\HospitalAppointmentAPI.csproj",
+        "projectUniqueName": "C:\\Personal\\Fint Solution\\Git Fint solution\\Github-Copilot-Fint-Solution\\HospitalAppointmentAPI\\HospitalAppointmentAPI\\HospitalAppointmentAPI.csproj",
         "projectName": "HospitalAppointmentAPI",
-        "projectPath": "C:\\Personal\\Fint Solution\\Day 10\\HospitalAppointmentAPI\\HospitalAppointmentAPI\\HospitalAppointmentAPI.csproj",
+        "projectPath": "C:\\Personal\\Fint Solution\\Git Fint solution\\Github-Copilot-Fint-Solution\\HospitalAppointmentAPI\\HospitalAppointmentAPI\\HospitalAppointmentAPI.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Personal\\Fint Solution\\Day 10\\HospitalAppointmentAPI\\HospitalAppointmentAPI\\obj\\",
+        "outputPath": "C:\\Personal\\Fint Solution\\Git Fint solution\\Github-Copilot-Fint-Solution\\HospitalAppointmentAPI\\HospitalAppointmentAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -31,7 +31,6 @@
         },
         "frameworks": {
           "net8.0": {
-            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {}
           }
@@ -40,17 +39,10 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "10.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
-          "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
@@ -101,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

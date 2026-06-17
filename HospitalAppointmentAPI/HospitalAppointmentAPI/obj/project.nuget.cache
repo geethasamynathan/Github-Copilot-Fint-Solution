@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wARnBdNF7Vo=",
+  "dgSpecHash": "aHVF0SZgEx1z1WkGYFZ+F7tqFA8APOkxr/BZQ5shrGex2pCqdyIbpVYFZF4oDr0HjqnA68hu5yXlhAas1iHhLA==",
   "success": true,
-  "projectFilePath": "C:\\Personal\\Fint Solution\\Day 10\\HospitalAppointmentAPI\\HospitalAppointmentAPI\\HospitalAppointmentAPI.csproj",
+  "projectFilePath": "C:\\Personal\\Fint Solution\\Git Fint solution\\Github-Copilot-Fint-Solution\\HospitalAppointmentAPI\\HospitalAppointmentAPI\\HospitalAppointmentAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LENOVO\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
