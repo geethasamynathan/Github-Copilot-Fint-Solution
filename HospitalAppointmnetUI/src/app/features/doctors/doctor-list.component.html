@@ -1,0 +1,109 @@
+<div class="doctor-list-container">
+  <app-page-header
+    title="Doctors"
+    icon="local_hospital"
+    subtitle="Manage and view all registered doctors"
+  ></app-page-header>
+
+  <app-loading-spinner
+    *ngIf="loading"
+    message="Loading doctors..."
+  ></app-loading-spinner>
+
+  <div *ngIf="!loading && error" class="error-message">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && doctors.length === 0 && !error">
+    <app-empty-state
+      icon="local_hospital"
+      title="No Doctors Found"
+      description="No doctors are registered in the system yet."
+    ></app-empty-state>
+  </div>
+
+  <div *ngIf="!loading && doctors.length > 0 && !error" class="table-container">
+    <mat-card>
+      <table mat-table [dataSource]="doctors" class="doctor-table">
+        <!-- Name Column -->
+        <ng-container matColumnDef="fullName">
+          <th mat-header-cell *matHeaderCellDef>Doctor Name</th>
+          <td mat-cell *matCellDef="let element">
+            <div class="name-cell">
+              <mat-icon class="doctor-icon">account_circle</mat-icon>
+              <span>{{ element.fullName }}</span>
+            </div>
+          </td>
+        </ng-container>
+
+        <!-- Specialization Column -->
+        <ng-container matColumnDef="specialization">
+          <th mat-header-cell *matHeaderCellDef>Specialization</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.specialization }}
+          </td>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>Email</th>
+          <td mat-cell *matCellDef="let element">
+            <a [href]="'mailto:' + element.email">{{ element.email }}</a>
+          </td>
+        </ng-container>
+
+        <!-- Phone Column -->
+        <ng-container matColumnDef="phoneNumber">
+          <th mat-header-cell *matHeaderCellDef>Phone</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.phoneNumber }}
+          </td>
+        </ng-container>
+
+        <!-- Consultation Fee Column -->
+        <ng-container matColumnDef="consultationFee">
+          <th mat-header-cell *matHeaderCellDef>Consultation Fee</th>
+          <td mat-cell *matCellDef="let element">
+            <strong>${{ element.consultationFee.toFixed(2) }}</strong>
+          </td>
+        </ng-container>
+
+        <!-- Availability Column -->
+        <ng-container matColumnDef="availability">
+          <th mat-header-cell *matHeaderCellDef>Availability</th>
+          <td mat-cell *matCellDef="let element">
+            <mat-chip
+              [class.available]="element.isAvailable"
+              [class.unavailable]="!element.isAvailable"
+            >
+              <mat-icon *ngIf="element.isAvailable" class="chip-icon"
+                >check_circle</mat-icon
+              >
+              <mat-icon *ngIf="!element.isAvailable" class="chip-icon"
+                >cancel</mat-icon
+              >
+              {{ element.isAvailable ? "Available" : "Unavailable" }}
+            </mat-chip>
+          </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-icon-button
+              (click)="viewDetails(element)"
+              matTooltip="View Details"
+            >
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </mat-card>
+  </div>
+</div>

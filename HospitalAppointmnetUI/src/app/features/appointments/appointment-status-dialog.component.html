@@ -1,0 +1,26 @@
+<div class="status-dialog">
+  <h2 mat-dialog-title>Update Appointment Status</h2>
+
+  <form [formGroup]="statusForm" mat-dialog-content>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Appointment Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option *ngFor="let status of statuses" [value]="status">
+          {{ status }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+  <div mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button
+      mat-raised-button
+      color="primary"
+      [mat-dialog-close]="statusForm.value.status"
+      [disabled]="statusForm.invalid"
+    >
+      Update
+    </button>
+  </div>
+</div>

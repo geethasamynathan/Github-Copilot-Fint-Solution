@@ -1,0 +1,142 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+app-root {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  color: #333;
+}
+
+p {
+  line-height: 1.6;
+  color: #666;
+}
+
+a {
+  color: #667eea;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #764ba2;
+  }
+}
+
+/* Material Overrides */
+::ng-deep .mat-mdc-toolbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep .mat-mdc-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px;
+}
+
+::ng-deep .mat-mdc-button,
+::ng-deep .mat-mdc-raised-button {
+  border-radius: 4px;
+}
+
+::ng-deep .mat-mdc-form-field {
+  width: 100%;
+}
+
+::ng-deep .mdc-text-field--filled {
+  background-color: #f9f9f9;
+}
+
+/* Snackbar styles */
+::ng-deep .mdc-snackbar {
+  z-index: 1000;
+}
+
+::ng-deep .error-snackbar .mdc-snackbar__surface {
+  background-color: #f44336 !important;
+}
+
+::ng-deep .error-snackbar .mdc-snackbar__label {
+  color: white !important;
+}
+
+/* Dialog styles */
+::ng-deep .mat-mdc-dialog-container {
+  border-radius: 8px;
+}
+
+/* Table styles */
+::ng-deep .mat-mdc-table {
+  width: 100%;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+
+  &:hover {
+    background: #555;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+}

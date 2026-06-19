@@ -1,0 +1,114 @@
+.appointment-list-container {
+  width: 100%;
+}
+
+.action-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  justify-content: flex-end;
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.error-message {
+  padding: 16px;
+  background-color: #ffebee;
+  color: #c62828;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border-left: 4px solid #c62828;
+}
+
+.table-container {
+  mat-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+}
+
+.appointment-table {
+  width: 100%;
+
+  th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #eee;
+  }
+
+  td {
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+    color: #666;
+  }
+
+  tr:hover {
+    background-color: #fafafa;
+  }
+}
+
+.doctor-cell,
+.patient-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .table-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    color: #667eea;
+  }
+
+  span {
+    font-weight: 500;
+    color: #333;
+  }
+}
+
+.reason-text {
+  max-width: 150px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+mat-chip {
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .action-bar {
+    justify-content: center;
+    button {
+      width: 100%;
+    }
+  }
+
+  .appointment-table {
+    td,
+    th {
+      padding: 12px;
+      font-size: 12px;
+    }
+  }
+
+  .doctor-cell,
+  .patient-cell {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .reason-text {
+    max-width: 100px;
+  }
+}

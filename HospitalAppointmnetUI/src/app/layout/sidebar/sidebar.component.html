@@ -1,0 +1,25 @@
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <h2 class="logo-text">Hospital</h2>
+    <p class="subtitle">Appointment Management</p>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <mat-nav-list class="nav-list">
+    <mat-list-item
+      *ngFor="let item of navItems"
+      [routerLink]="item.route"
+      routerLinkActive="active"
+    >
+      <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+      <span matListItemTitle>{{ item.label }}</span>
+    </mat-list-item>
+  </mat-nav-list>
+
+  <mat-divider class="footer-divider"></mat-divider>
+
+  <div class="sidebar-footer">
+    <p class="footer-text">Hospital Appointment v1.0</p>
+  </div>
+</nav>

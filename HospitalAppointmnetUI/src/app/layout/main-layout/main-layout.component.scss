@@ -1,0 +1,68 @@
+::ng-deep .app-toolbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.menu-button {
+  margin-right: 16px;
+}
+
+.toolbar-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.app-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.sidenav-container {
+  height: calc(100vh - 64px);
+}
+
+::ng-deep .sidenav {
+  width: 260px;
+  background-color: #f5f5f5;
+}
+
+.sidenav-content {
+  overflow-y: auto;
+}
+
+.content-container {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  ::ng-deep .sidenav {
+    width: 240px;
+  }
+
+  .content-container {
+    padding: 16px;
+  }
+
+  .toolbar-title {
+    font-size: 16px;
+    gap: 8px;
+  }
+
+  .app-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+}

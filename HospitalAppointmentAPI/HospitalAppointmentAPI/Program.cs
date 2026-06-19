@@ -24,6 +24,7 @@ builder.Services.AddCors(options =>
     });
 });
 
+
 // Configuration & DbContext
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<HospitalAppointmentAPI.Data.HospitalAppointmentDbContext>(options =>
@@ -68,6 +69,17 @@ builder.Services.AddScoped<HospitalAppointmentAPI.Services.IPatientService, Hosp
 builder.Services.AddScoped<HospitalAppointmentAPI.Services.IAppointmentService, HospitalAppointmentAPI.Services.AppointmentService>();
 builder.Services.AddScoped<HospitalAppointmentAPI.Services.IAuthService, HospitalAppointmentAPI.Services.AuthService>();
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowHtmlClient", policy =>
+    {
+        policy.AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+
+    });
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -110,7 +122,7 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 
 // Enable CORS policy
-app.UseCors("AllowAngularDev");
+app.UseCors("AllowHtmlClient");
 
 app.UseAuthentication();
 

@@ -1,11 +1,13 @@
 using System.Threading.Tasks;
 using HospitalAppointmentAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HospitalAppointmentAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [AllowAnonymous]
     public class DoctorsController : ControllerBase
     {
         private readonly IDoctorService _doctorService;
@@ -16,7 +18,7 @@ namespace HospitalAppointmentAPI.Controllers
         }
 
         [HttpGet]
-        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin,User")]
+        // [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin,User")]
         public async Task<IActionResult> Get()
         {
             var list = await _doctorService.GetAllAsync();
@@ -24,7 +26,7 @@ namespace HospitalAppointmentAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin,User")]
+        // [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin,User")]
         public async Task<IActionResult> GetById(int id)
         {
             var d = await _doctorService.GetByIdAsync(id);

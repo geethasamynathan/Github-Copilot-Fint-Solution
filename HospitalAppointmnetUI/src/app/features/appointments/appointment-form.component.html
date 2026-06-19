@@ -1,0 +1,140 @@
+<div class="appointment-form-container">
+  <app-page-header
+    title="Create Appointment"
+    icon="add_circle"
+    subtitle="Schedule a new appointment"
+  ></app-page-header>
+
+  <app-loading-spinner
+    *ngIf="loading"
+    message="Loading form data..."
+  ></app-loading-spinner>
+
+  <div *ngIf="!loading && error" class="error-message">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && !error" class="form-wrapper">
+    <mat-card class="form-card">
+      <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+        <div class="form-grid">
+          <!-- Doctor Selection -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Select Doctor</mat-label>
+            <mat-select formControlName="doctorId">
+              <mat-option
+                *ngFor="let doctor of doctors"
+                [value]="doctor.doctorId"
+              >
+                Dr. {{ doctor.fullName }} - {{ doctor.specialization }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="appointmentForm.get('doctorId')?.hasError('required')"
+            >
+              Doctor is required
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Patient Selection -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Select Patient</mat-label>
+            <mat-select formControlName="patientId">
+              <mat-option
+                *ngFor="let patient of patients"
+                [value]="patient.patientId"
+              >
+                {{ patient.fullName }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="appointmentForm.get('patientId')?.hasError('required')"
+            >
+              Patient is required
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Appointment Date -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Appointment Date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              formControlName="appointmentDate"
+            />
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error
+              *ngIf="
+                appointmentForm.get('appointmentDate')?.hasError('required')
+              "
+            >
+              Appointment date is required
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Appointment Time -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Appointment Time</mat-label>
+            <input matInput type="time" formControlName="appointmentTime" />
+            <mat-error
+              *ngIf="
+                appointmentForm.get('appointmentTime')?.hasError('required')
+              "
+            >
+              Appointment time is required
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Reason for Visit -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Reason for Visit</mat-label>
+            <textarea
+              matInput
+              formControlName="reason"
+              rows="4"
+              placeholder="Describe the reason for this appointment..."
+            ></textarea>
+            <mat-hint>Minimum 10 characters</mat-hint>
+            <mat-error
+              *ngIf="appointmentForm.get('reason')?.hasError('required')"
+            >
+              Reason is required
+            </mat-error>
+            <mat-error
+              *ngIf="appointmentForm.get('reason')?.hasError('minlength')"
+            >
+              Reason must be at least 10 characters
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <button
+            mat-stroked-button
+            type="button"
+            (click)="cancel()"
+            class="cancel-btn"
+          >
+            Cancel
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="appointmentForm.invalid || submitLoading"
+            class="submit-btn"
+          >
+            <mat-icon *ngIf="!submitLoading">check_circle</mat-icon>
+            <mat-icon *ngIf="submitLoading" class="spinner">schedule</mat-icon>
+            {{ submitLoading ? "Creating..." : "Create Appointment" }}
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>
