@@ -28,24 +28,32 @@
   mat-card {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    overflow: hidden;
+    overflow: auto;
   }
 }
 
 .appointment-table {
   width: 100%;
+  border-collapse: collapse;
 
   th {
     background-color: #f5f5f5;
     font-weight: 600;
     color: #333;
     border-bottom: 2px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 16px;
+    text-align: left;
+    min-width: 100px;
   }
 
   td {
     padding: 16px;
     border-bottom: 1px solid #eee;
     color: #666;
+    min-width: 100px;
   }
 
   tr:hover {
@@ -53,27 +61,67 @@
   }
 }
 
+/* Column-specific widths */
+ng-container[matColumnDef="appointmentId"] ~ th {
+  min-width: 70px;
+}
+
+ng-container[matColumnDef="doctorName"] ~ th {
+  min-width: 150px;
+}
+
+ng-container[matColumnDef="patientName"] ~ th {
+  min-width: 150px;
+}
+
+ng-container[matColumnDef="date"] ~ th {
+  min-width: 110px;
+}
+
+ng-container[matColumnDef="time"] ~ th {
+  min-width: 100px;
+}
+
+ng-container[matColumnDef="status"] ~ th {
+  min-width: 110px;
+}
+
+ng-container[matColumnDef="reason"] ~ th {
+  min-width: 150px;
+}
+
+ng-container[matColumnDef="actions"] ~ th {
+  min-width: 100px;
+  text-align: center;
+}
+
 .doctor-cell,
 .patient-cell {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: nowrap;
+  overflow: hidden;
 
   .table-icon {
     font-size: 18px;
     width: 18px;
     height: 18px;
     color: #667eea;
+    flex-shrink: 0;
   }
 
   span {
     font-weight: 500;
     color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
 .reason-text {
-  max-width: 150px;
+  max-width: 200px;
   display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -84,6 +132,52 @@ mat-chip {
   border-radius: 16px;
   font-size: 12px;
   font-weight: 500;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+
+    mat-icon {
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+    }
+
+    span {
+      white-space: nowrap;
+    }
+  }
+
+  .btn-edit {
+    color: #667eea;
+    border-color: #667eea;
+
+    &:hover {
+      background-color: rgba(102, 126, 234, 0.08);
+    }
+  }
+
+  .btn-delete {
+    color: #f44336;
+    border-color: #f44336;
+
+    &:hover {
+      background-color: rgba(244, 67, 54, 0.08);
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -99,6 +193,7 @@ mat-chip {
     th {
       padding: 12px;
       font-size: 12px;
+      min-width: 80px;
     }
   }
 

@@ -3,6 +3,15 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+
+  mat-icon {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .menu-button {
@@ -15,12 +24,20 @@
   gap: 12px;
   font-size: 18px;
   font-weight: 500;
-}
 
-.app-icon {
-  font-size: 24px;
-  width: 24px;
-  height: 24px;
+  .app-icon {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .spacer {
@@ -44,6 +61,7 @@
   padding: 24px;
   max-width: 1400px;
   margin: 0 auto;
+  overflow-x: auto;
 }
 
 @media (max-width: 768px) {

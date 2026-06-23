@@ -16,6 +16,9 @@
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.5px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
 .subtitle {
@@ -33,7 +36,7 @@
 ::ng-deep .nav-list .mdc-list-item.active {
   background-color: #f0f0f0;
   border-left: 4px solid #667eea;
-  padding-left: 16px - 4px;
+  padding-left: calc(16px - 4px);
   
   .mat-icon {
     color: #667eea;
@@ -49,6 +52,7 @@
   font-size: 14px;
   color: #666;
   transition: all 0.2s ease;
+  padding-left: 0 !important;
 
   &:hover {
     background-color: #f9f9f9;
@@ -57,6 +61,17 @@
   .mat-icon {
     margin-right: 16px;
     color: #999;
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mat-list-item-title {
+    font-size: 14px;
+    font-weight: 400;
   }
 }
 

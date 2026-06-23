@@ -48,54 +48,52 @@
 }
 
 .stat-icon {
-  font-size: 28px;
-  width: 28px;
-  height: 28px;
+  font-size: 32px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+
+  mat-icon {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .doctors-icon {
   color: #2196f3;
   background-color: #e3f2fd;
-  border-radius: 50%;
-  padding: 8px;
 }
 
 .patients-icon {
   color: #4caf50;
   background-color: #e8f5e9;
-  border-radius: 50%;
-  padding: 8px;
 }
 
 .appointments-icon {
   color: #ff9800;
   background-color: #fff3e0;
-  border-radius: 50%;
-  padding: 8px;
 }
 
 .scheduled-icon {
   color: #2196f3;
   background-color: #e3f2fd;
-  border-radius: 50%;
-  padding: 8px;
 }
 
 .completed-icon {
   color: #4caf50;
   background-color: #e8f5e9;
-  border-radius: 50%;
-  padding: 8px;
 }
 
 .cancelled-icon {
   color: #f44336;
   background-color: #ffebee;
-  border-radius: 50%;
-  padding: 8px;
 }
 
 .stat-value {
